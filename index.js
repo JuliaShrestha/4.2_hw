@@ -1,19 +1,21 @@
 const number = prompt('Enter a three-digit number');
 
-if (!number || isNaN(number)) {
-    alert('Please, enter the number');
-} else if (number.length !== 3 ) {
+if (number === null) {
+    alert('You canceled');
+} else if (!number.trim() || isNaN(number.trim())) {
+    alert('Please, enter a valid number');
+} else if (number.trim().length !== 3 || number !== String(+number)) {
     alert('Please, enter a three-digit number');
 } else {
-    alert(number);
-}
 
-const numArr = number.split('');
+const numArr = number.toString().split('');
 
-if (number[0] === number[1] && number[1] === number[2] && number[0] === number[2]) {
+if (numArr[0] === numArr[1] && numArr[1] === numArr[2] && numArr[0] === numArr[2]) {
     console.log('All numbers are the same');
-} else if(number[0] === number[1] || number[1] === number[2] || number[0] === number[2]) {
+} else if(numArr[0] === numArr[1] || numArr[1] === numArr[2] || numArr[0] === numArr[2]) {
     console.log('Some numbers are the same');
 } else {
-    alert(number);
+    console.log(number);
+}
+
 }
